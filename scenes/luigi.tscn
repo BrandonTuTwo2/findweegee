@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7fjne23p07o"]
+
+[ext_resource type="Texture2D" uid="uid://2b5yhi7lkifc" path="res://assets/sprites/luigi_sprite.png" id="1_qnpto"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77b8c"]
+radius = 4.0
+
+[node name="luigi" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.0576923, 0.0565476)
+texture = ExtResource("1_qnpto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_77b8c")
