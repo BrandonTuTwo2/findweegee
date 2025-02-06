@@ -1,11 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs7lwwoc7sptt"]
+[gd_scene load_steps=3 format=3 uid="uid://cs7lwwoc7sptt"]
 
-[ext_resource type="PackedScene" uid="uid://h7fjne23p07o" path="res://scenes/luigi.tscn" id="1_xtxnr"]
+[ext_resource type="PackedScene" uid="uid://b8aph1iisbs0g" path="res://scenes/yoshi.tscn" id="2_gui80"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tfubl"]
 
 [node name="Game" type="Node2D"]
 
-[node name="luigi" parent="." instance=ExtResource("1_xtxnr")]
-position = Vector2(6, 5)
+[node name="yoshi" parent="." instance=ExtResource("2_gui80")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 4)
 zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(17, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7, 39)
+shape = SubResource("WorldBoundaryShape2D_tfubl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(9, -24)
+rotation = -1.56549
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-7, 39)
+shape = SubResource("WorldBoundaryShape2D_tfubl")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(17, 9)
+rotation = 3.15348
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(5.5822, 48.9371)
+rotation = -0.010043
+shape = SubResource("WorldBoundaryShape2D_tfubl")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(11, 2.00001)
+rotation = 1.57435
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-7, 39)
+shape = SubResource("WorldBoundaryShape2D_tfubl")

@@ -8,8 +8,8 @@ radius = 4.0
 [node name="luigi" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.0576923, 0.0565476)
+position = Vector2(0.125, -0.625001)
+scale = Vector2(0.0596154, 0.0520833)
 texture = ExtResource("1_qnpto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
