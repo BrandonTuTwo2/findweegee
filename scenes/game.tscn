@@ -26,6 +26,7 @@ rotation = -1.56549
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-7, 39)
 shape = SubResource("WorldBoundaryShape2D_tfubl")
+debug_color = Color(0.859693, 0.270841, 0.613978, 0.42)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(17, 9)
@@ -43,3 +44,6 @@ rotation = 1.57435
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2(-7, 39)
 shape = SubResource("WorldBoundaryShape2D_tfubl")
+
+[node name="yoshi2" parent="." instance=ExtResource("2_gui80")]
+position = Vector2(19, -4)
