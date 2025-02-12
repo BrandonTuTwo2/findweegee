@@ -15,6 +15,16 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=275
+window/size/viewport_height=489
+window/size/resizable=false
+
+[global_group]
+
+characters="all of the heads floatin around"
+
 [input]
 
 click={

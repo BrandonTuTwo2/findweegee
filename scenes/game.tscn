@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs7lwwoc7sptt"]
 
-[ext_resource type="PackedScene" uid="uid://b8aph1iisbs0g" path="res://scenes/yoshi.tscn" id="2_gui80"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_xkeed"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tfubl"]
+distance = -17.0
 
 [node name="Game" type="Node2D"]
-
-[node name="yoshi" parent="." instance=ExtResource("2_gui80")]
+script = ExtResource("1_xkeed")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(10, 4)
@@ -24,7 +24,7 @@ position = Vector2(9, -24)
 rotation = -1.56549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-7, 39)
+position = Vector2(-18.8989, 19.1006)
 shape = SubResource("WorldBoundaryShape2D_tfubl")
 debug_color = Color(0.859693, 0.270841, 0.613978, 0.42)
 
@@ -42,8 +42,5 @@ position = Vector2(11, 2.00001)
 rotation = 1.57435
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(-7, 39)
+position = Vector2(-6.93245, 19.0248)
 shape = SubResource("WorldBoundaryShape2D_tfubl")
-
-[node name="yoshi2" parent="." instance=ExtResource("2_gui80")]
-position = Vector2(19, -4)

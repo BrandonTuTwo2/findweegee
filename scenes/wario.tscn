@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm8fq6meoshk4"]
+
+[ext_resource type="Texture2D" uid="uid://be1jn3ciwusny" path="res://assets/sprites/wario_sprite.png" id="1_g1ppf"]
+[ext_resource type="Script" path="res://scripts/wario.gd" id="1_j6r1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63x38"]
+radius = 5.0
+
+[node name="wario" type="CharacterBody2D" groups=["characters"]]
+script = ExtResource("1_j6r1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["characters"]]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_g1ppf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_63x38")

@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://h7fjne23p07o"]
+[gd_scene load_steps=4 format=3 uid="uid://h7fjne23p07o"]
 
+[ext_resource type="Script" path="res://scripts/luigi.gd" id="1_38im0"]
 [ext_resource type="Texture2D" uid="uid://2b5yhi7lkifc" path="res://assets/sprites/luigi_sprite.png" id="1_qnpto"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77b8c"]
 radius = 4.0
 
-[node name="luigi" type="CharacterBody2D"]
+[node name="luigi" type="CharacterBody2D" groups=["characters"]]
+script = ExtResource("1_38im0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["characters"]]
 position = Vector2(0.125, -0.625001)
 scale = Vector2(0.0596154, 0.0520833)
 texture = ExtResource("1_qnpto")

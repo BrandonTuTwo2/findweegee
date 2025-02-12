@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ib577dcly54"]
+
+[ext_resource type="Script" path="res://scripts/mario.gd" id="1_aafxx"]
+[ext_resource type="Texture2D" uid="uid://bc8j1xe38ddfm" path="res://assets/sprites/mario_sprite.png" id="1_g1bap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sonad"]
+radius = 4.0
+
+[node name="mario" type="CharacterBody2D" groups=["characters"]]
+script = ExtResource("1_aafxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_g1bap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sonad")
