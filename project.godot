@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=275
-window/size/viewport_height=489
+window/size/viewport_height=689
 window/size/resizable=false
 
 [global_group]
@@ -36,3 +36,4 @@ click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

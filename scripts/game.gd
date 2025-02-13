@@ -10,7 +10,7 @@ func spawn_yoshis(amount: int) -> void:
 	for n in amount:
 		var tempYoshi = yoshi.instantiate()
 		var randX = rng.randi_range(-50,50) 
-		var randY = rng.randi_range(-50,50)
+		var randY = rng.randi_range(-50,75)
 		tempYoshi.global_position = Vector2(randX,randY)
 		add_child(tempYoshi)
 
@@ -18,7 +18,7 @@ func spawn_warios(amount: int) -> void:
 	for n in amount:
 		var tempWario = wario.instantiate()
 		var randX = rng.randi_range(-50,50) 
-		var randY = rng.randi_range(-50,50)
+		var randY = rng.randi_range(-50,75)
 		tempWario.global_position = Vector2(randX,randY)
 		add_child(tempWario)
 
@@ -26,14 +26,14 @@ func spawn_marios(amount: int) -> void:
 	for n in amount:
 		var tempMario = mario.instantiate()
 		var randX = rng.randi_range(-50,50) 
-		var randY = rng.randi_range(-50,50)
+		var randY = rng.randi_range(-50,75)
 		tempMario.global_position = Vector2(randX,randY)
 		add_child(tempMario)
 
 func spawn_luigi() -> void:
 	var tempLuigi = luigi.instantiate()
 	var randX = rng.randi_range(-50,50) 
-	var randY = rng.randi_range(-50,50)
+	var randY = rng.randi_range(-50,75)
 	tempLuigi.global_position = Vector2(randX,randY)
 	add_child(tempLuigi)
 
