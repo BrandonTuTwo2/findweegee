@@ -42,7 +42,7 @@ func _ready() -> void:
 	spawn_yoshis(40)
 	spawn_warios(40)
 	spawn_marios(40)
-	spawn_luigi()
+
 
 	pass # Replace with function body.
 
