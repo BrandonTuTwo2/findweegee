@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs7lwwoc7sptt"]
+[gd_scene load_steps=8 format=3 uid="uid://cs7lwwoc7sptt"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_xkeed"]
 [ext_resource type="FontFile" uid="uid://d1gwsrv1jjwx0" path="res://assets/fonts/Daydream.ttf" id="2_hjvfe"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="2_xp3cv"]
 [ext_resource type="Script" path="res://scripts/reset.gd" id="3_ytut6"]
 [ext_resource type="Script" path="res://scenes/timer_label.gd" id="4_4rokh"]
-[ext_resource type="PackedScene" uid="uid://h7fjne23p07o" path="res://scenes/luigi.tscn" id="6_sbgys"]
 [ext_resource type="Script" path="res://scenes/score_label.gd" id="6_ynv6f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tfubl"]
@@ -113,13 +112,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_ynv6f")
 
-[node name="luigi" parent="." instance=ExtResource("6_sbgys")]
-position = Vector2(-3, -9)
-
 [connection signal="pressed" from="reset" to="TimerLabel" method="_on_reset_pressed"]
 [connection signal="pressed" from="pause" to="TimerLabel" method="_on_pause_pressed"]
-[connection signal="input_event" from="luigi" to="." method="_on_luigi_input_event"]
-[connection signal="input_event" from="luigi" to="TimerLabel" method="_on_luigi_input_event"]
-[connection signal="input_event" from="luigi" to="ScoreLabel" method="_on_luigi_input_event"]
-[connection signal="mouse_entered" from="luigi" to="ScoreLabel" method="_on_luigi_mouse_entered"]
-[connection signal="mouse_exited" from="luigi" to="ScoreLabel" method="_on_luigi_mouse_exited"]

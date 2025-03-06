@@ -3,15 +3,12 @@ extends CharacterBody2D
 @export var speed = 800.0
 var dir := Vector2.ZERO
 @onready var characters = get_tree().get_nodes_in_group("characters")
+@onready var clicked = false
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && event.is_action_released("left_click") && event.button_index == MOUSE_BUTTON_LEFT:
-		print("HI")
-		
-		
 func _on_character_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed():
-		print("Luigi Clicked!!")
+		clicked = !clicked
+		print("Luigi Clicked!1")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,10 +26,10 @@ func get_rand_val() -> float:
 	
 func _physics_process(delta: float) -> void:
 	velocity = speed * dir * delta
-	move_and_slide()
-	
-	for index in get_slide_collision_count():
-		var collision = get_slide_collision(index)
-		if collision.get_collider() is StaticBody2D:
-			dir = Vector2(get_rand_val(),get_rand_val()).normalized() 
-			velocity = speed * dir * delta
+	if !clicked:
+		move_and_slide()
+		for index in get_slide_collision_count():
+			var collision = get_slide_collision(index)
+			if collision.get_collider() is StaticBody2D:
+				dir = Vector2(get_rand_val(),get_rand_val()).normalized() 
+				velocity = speed * dir * delta
