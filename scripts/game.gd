@@ -9,6 +9,7 @@ var dynamicLuigi
 var yoshiArr = []
 var marioArr = []
 var warioArr = []
+var difficulty = 0
 
 func spawn_yoshis(amount: int) -> void:
 	for n in amount:
@@ -43,6 +44,7 @@ func spawn_luigi() -> void:
 	var randY = rng.randi_range(-50,75)
 	tempLuigi.global_position = Vector2(randX,randY)
 	dynamicLuigi = tempLuigi
+	dynamicLuigi.input_event.connect(_on_luigi_input_event)
 	add_child(tempLuigi)
 	
 
@@ -51,8 +53,7 @@ func _init() -> void:
 	spawn_warios(40)
 	spawn_marios(40)
 	spawn_luigi()
-	print(get_node("wario"))
-	dynamicLuigi.input_event.connect(_on_luigi_input_event)
+	#print(get_node("wario"))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,20 +68,35 @@ func _process(delta: float) -> void:
 	
 func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed():
+		await get_tree().create_timer(2.0).timeout
+		var randX = rng.randi_range(-50,50) 
+		var randY = rng.randi_range(-50,75)
+		difficulty += 2
 		print("luigi clicked stop people from moving")
 		for i in range(len(yoshiArr)):
 			self.remove_child(yoshiArr[i])
 			self.remove_child(marioArr[i])
 			self.remove_child(warioArr[i])
-		self.remove_child(dynamicLuigi)
+		#self.remove_child(dynamicLuigi)
 		#need to add an 5 second timer or something
-		spawn_luigi()
+		#spawn_luigi()
+		dynamicLuigi.global_position = Vector2(randX,randY)
 		yoshiArr = []
 		marioArr = []
 		warioArr = []
-		spawn_yoshis(40)
-		spawn_warios(40)
-		spawn_marios(40)
+		spawn_yoshis(40 + difficulty) #we can either despawn & respawn each time or change pos each time
+		spawn_warios(40 + difficulty)
+		spawn_marios(40 + difficulty)
 
+		
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	for i in range(len(yoshiArr)):
+		self.remove_child(yoshiArr[i])
+		self.remove_child(marioArr[i])
+		self.remove_child(warioArr[i])
+	dynamicLuigi.visible = false
 		
 	pass # Replace with function body.

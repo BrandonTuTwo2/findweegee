@@ -26,10 +26,10 @@ func get_rand_val() -> float:
 	
 func _physics_process(delta: float) -> void:
 	velocity = speed * dir * delta
-	if !clicked:
-		move_and_slide()
-		for index in get_slide_collision_count():
-			var collision = get_slide_collision(index)
-			if collision.get_collider() is StaticBody2D:
-				dir = Vector2(get_rand_val(),get_rand_val()).normalized() 
-				velocity = speed * dir * delta
+
+	move_and_slide()
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		if collision.get_collider() is StaticBody2D:
+			dir = Vector2(get_rand_val(),get_rand_val()).normalized() 
+			velocity = speed * dir * delta
