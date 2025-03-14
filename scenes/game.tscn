@@ -115,5 +115,6 @@ vertical_alignment = 1
 script = ExtResource("6_ynv6f")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="reset" to="TimerLabel" method="_on_reset_pressed"]
 [connection signal="pressed" from="pause" to="TimerLabel" method="_on_pause_pressed"]

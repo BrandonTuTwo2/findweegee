@@ -9,6 +9,8 @@ var dir := Vector2.ZERO
 func _ready() -> void:
 	randomize()
 	var luigi = get_tree().root.get_child(0).get_node("luigi")
+	var pauseButton = get_tree().root.get_child(0).get_node("pause")
+	pauseButton.pressed.connect(_on_pause_clicked)
 	luigi.input_event.connect(_on_luigi_input_event)
 	dir = Vector2(get_rand_val(),get_rand_val()).normalized() 
 	for charas in characters:
@@ -31,6 +33,10 @@ func _physics_process(delta: float) -> void:
 				velocity = speed * dir * delta
 	else:
 		self.visible = false
+
+func _on_pause_clicked() -> void:
+	found = !found
+
 
 func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed():

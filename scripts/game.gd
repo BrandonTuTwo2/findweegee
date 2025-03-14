@@ -66,37 +66,53 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func respawnAll(difficulty: int) -> void:
+	var randX = rng.randi_range(-50,50) 
+	var randY = rng.randi_range(-50,75)
+	
+	for i in range(len(yoshiArr)):
+		self.remove_child(yoshiArr[i])
+		self.remove_child(marioArr[i])
+		self.remove_child(warioArr[i])
+		
+	dynamicLuigi.global_position = Vector2(randX,randY)
+	yoshiArr = []
+	marioArr = []
+	warioArr = []
+	spawn_yoshis(40 + difficulty) #we can either despawn & respawn each time or change pos each time
+	spawn_warios(40 + difficulty)
+	spawn_marios(40 + difficulty)
+	dynamicLuigi.visible = true
+		
+
 func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed():
 		await get_tree().create_timer(2.0).timeout
-		var randX = rng.randi_range(-50,50) 
-		var randY = rng.randi_range(-50,75)
 		difficulty += 2
-		print("luigi clicked stop people from moving")
-		for i in range(len(yoshiArr)):
-			self.remove_child(yoshiArr[i])
-			self.remove_child(marioArr[i])
-			self.remove_child(warioArr[i])
-		#self.remove_child(dynamicLuigi)
-		#need to add an 5 second timer or something
-		#spawn_luigi()
-		dynamicLuigi.global_position = Vector2(randX,randY)
-		yoshiArr = []
-		marioArr = []
-		warioArr = []
-		spawn_yoshis(40 + difficulty) #we can either despawn & respawn each time or change pos each time
-		spawn_warios(40 + difficulty)
-		spawn_marios(40 + difficulty)
-
-		
+		respawnAll(difficulty)
 	pass # Replace with function body.
 
 
+
+
 func _on_timer_timeout() -> void:
+	print("TIME OUT")
 	for i in range(len(yoshiArr)):
 		self.remove_child(yoshiArr[i])
 		self.remove_child(marioArr[i])
 		self.remove_child(warioArr[i])
 	dynamicLuigi.visible = false
 		
+	pass # Replace with function body.
+
+
+func _on_reset_pressed() -> void:
+	print("HI ME")
+	difficulty = 0
+	for i in range(len(yoshiArr)):
+		self.remove_child(yoshiArr[i])
+		self.remove_child(marioArr[i])
+		self.remove_child(warioArr[i])
+	dynamicLuigi.visible = false
+	respawnAll(difficulty)
 	pass # Replace with function body.

@@ -23,3 +23,9 @@ func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		text = "Score: " + var_to_str(score)
 		
 	pass # Replace with function body.
+
+
+func _on_reset_pressed() -> void:
+	text = "Score: 0";
+	score = 0;
+	pass # Replace with function body.
