@@ -32,7 +32,6 @@ func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 
 func _on_reset_pressed() -> void:
 	#temporary will only have 60 seconds
-	print("reset clicked")
 	timer.start(maxTime)
 	time_off = false
 	timer.set_paused(time_off)

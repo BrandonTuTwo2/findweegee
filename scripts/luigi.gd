@@ -9,7 +9,6 @@ var dir := Vector2.ZERO
 func _on_character_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_pressed():
 		clicked = !clicked
-		print("Luigi Clicked!1")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,7 +38,6 @@ func _on_pause_clicked() -> void:
 		found = !found
 	
 func _on_reset_clicked() -> void:
-	print("reset luigie clicdk")
 	timeOut = false
 	found = false
 	
