@@ -2,7 +2,7 @@ extends Label
 
 @onready var maxTime = 60
 @onready var time = maxTime
-@onready var timer_on = false
+@onready var time_off = false
 @onready var difficulty = 0
 @onready var round = 0
 @onready var timer
@@ -32,13 +32,14 @@ func _on_luigi_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 
 func _on_reset_pressed() -> void:
 	#temporary will only have 60 seconds
+	print("reset clicked")
 	timer.start(maxTime)
-	timer_on = true
-	timer.set_paused(false)
+	time_off = false
+	timer.set_paused(time_off)
 	pass # Replace with function body.
 
 
 func _on_pause_pressed() -> void:
-	timer_on = !timer_on
-	timer.set_paused(timer_on)
+	time_off = !time_off
+	timer.set_paused(time_off)
 	pass # Replace with function body.

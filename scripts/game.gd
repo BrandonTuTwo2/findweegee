@@ -49,9 +49,9 @@ func spawn_luigi() -> void:
 	
 
 func _init() -> void:
-	spawn_yoshis(40)
-	spawn_warios(40)
-	spawn_marios(40)
+	spawn_yoshis(5)
+	spawn_warios(5)
+	spawn_marios(5)
 	spawn_luigi()
 	#print(get_node("wario"))
 
@@ -79,9 +79,9 @@ func respawnAll(difficulty: int) -> void:
 	yoshiArr = []
 	marioArr = []
 	warioArr = []
-	spawn_yoshis(40 + difficulty) #we can either despawn & respawn each time or change pos each time
-	spawn_warios(40 + difficulty)
-	spawn_marios(40 + difficulty)
+	spawn_yoshis(5 + difficulty) #we can either despawn & respawn each time or change pos each time
+	spawn_warios(5 + difficulty)
+	spawn_marios(5 + difficulty)
 	dynamicLuigi.visible = true
 		
 
@@ -100,9 +100,7 @@ func _on_timer_timeout() -> void:
 	for i in range(len(yoshiArr)):
 		self.remove_child(yoshiArr[i])
 		self.remove_child(marioArr[i])
-		self.remove_child(warioArr[i])
-	dynamicLuigi.visible = false
-		
+		self.remove_child(warioArr[i])	
 	pass # Replace with function body.
 
 
@@ -113,6 +111,5 @@ func _on_reset_pressed() -> void:
 		self.remove_child(yoshiArr[i])
 		self.remove_child(marioArr[i])
 		self.remove_child(warioArr[i])
-	dynamicLuigi.visible = false
 	respawnAll(difficulty)
 	pass # Replace with function body.
